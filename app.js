@@ -13,6 +13,10 @@ app.use(cors());
 
 app.use('/', userRoutes);
 
+app.get("/",(req,res)=>{
+    res.send("i am working");
+})
+
 module.exports=app;
 
 
