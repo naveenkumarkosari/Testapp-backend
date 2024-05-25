@@ -1,0 +1,33 @@
+version: '3.1'
+
+services:
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+      MYSQL_DATABASE: mydatabase
+    ports:
+      - "3406:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+
+  shadow-db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+      MYSQL_DATABASE: shadow_database
+    ports:
+      - "3407:3306"
+    volumes:
+      - shadow-db-data:/var/lib/mysql
+
+volumes:
+  db-data:
+  shadow-db-data:
+
+  
+
